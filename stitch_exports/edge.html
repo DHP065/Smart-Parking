@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Live Monitor | Kinetic Intelligence Framework</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;family=Space+Grotesk:wght@300;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-fixed": "#6ffbbe",
+                        "primary-fixed": "#d8e2ff",
+                        "surface-container-high": "#232a3a",
+                        "surface-container": "#191f2f",
+                        "error-container": "#93000a",
+                        "tertiary": "#a4c9ff",
+                        "secondary-container": "#00a572",
+                        "surface-dim": "#0c1322",
+                        "background": "#0c1322",
+                        "on-background": "#dce2f8",
+                        "surface": "#0c1322",
+                        "secondary-fixed-dim": "#4edea3",
+                        "tertiary-fixed": "#d4e3ff",
+                        "outline-variant": "#424754",
+                        "on-primary": "#002e6a",
+                        "surface-tint": "#adc6ff",
+                        "on-error-container": "#ffdad6",
+                        "on-primary-container": "#00285d",
+                        "inverse-primary": "#005ac2",
+                        "secondary": "#4edea3",
+                        "primary-fixed-dim": "#adc6ff",
+                        "on-tertiary-container": "#002a51",
+                        "on-tertiary": "#00315d",
+                        "surface-container-low": "#151b2b",
+                        "error": "#ffb4ab",
+                        "on-secondary-fixed": "#002113",
+                        "tertiary-fixed-dim": "#a4c9ff",
+                        "inverse-on-surface": "#293041",
+                        "on-secondary-container": "#00311f",
+                        "on-surface-variant": "#c2c6d6",
+                        "surface-bright": "#32394a",
+                        "primary-container": "#4d8eff",
+                        "on-primary-fixed-variant": "#004395",
+                        "on-tertiary-fixed": "#001c39",
+                        "on-secondary-fixed-variant": "#005236",
+                        "primary": "#adc6ff",
+                        "surface-container-highest": "#2e3545",
+                        "on-surface": "#dce2f8",
+                        "on-primary-fixed": "#001a42",
+                        "surface-variant": "#2e3545",
+                        "on-secondary": "#003824",
+                        "inverse-surface": "#dce2f8",
+                        "on-tertiary-fixed-variant": "#004883",
+                        "surface-container-lowest": "#070e1d",
+                        "outline": "#8c909f",
+                        "tertiary-container": "#4c93e7",
+                        "on-error": "#690005"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Space Grotesk"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #0c1322; color: #dce2f8; }
+        .font-mono { font-family: 'Space Grotesk', monospace; }
+        .scanline {
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+        }
+        .glow-emerald { box-shadow: 0 0 15px rgba(78, 222, 163, 0.3); }
+        .glass-panel { backdrop-filter: blur(12px); background: rgba(21, 27, 43, 0.7); }
+    </style>
+</head>
+<body class="overflow-hidden">
+<!-- TopAppBar -->
+<header class="bg-[#0c1322]/80 backdrop-blur-xl text-[#adc6ff] docked full-width top-0 z-50 flex justify-between items-center w-full px-6 h-16 shadow-[0_0_40px_rgba(173,198,255,0.1)] border-none fixed">
+<div class="flex items-center gap-8">
+<span class="text-[#adc6ff] font-bold tracking-tighter text-xl">Live Monitor</span>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="text-[#adc6ff] border-b-2 border-[#adc6ff] pb-1 Headlines: Inter font-semibold tracking-tight" href="#">Node Status</a>
+<a class="text-[#c2c6d6] hover:text-[#adc6ff] transition-colors Headlines: Inter font-semibold tracking-tight" href="#">Analytics</a>
+<a class="text-[#c2c6d6] hover:text-[#adc6ff] transition-colors Headlines: Inter font-semibold tracking-tight" href="#">Logs</a>
+<a class="text-[#c2c6d6] hover:text-[#adc6ff] transition-colors Headlines: Inter font-semibold tracking-tight" href="#">Archive</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex bg-surface-container-lowest px-2 py-1 rounded-sm gap-1">
+<button class="p-1 hover:bg-[#adc6ff]/10 transition-all duration-300 text-[#adc6ff]"><span class="material-symbols-outlined text-sm">grid_view</span></button>
+<button class="p-1 hover:bg-[#adc6ff]/10 transition-all duration-300 text-[#c2c6d6]"><span class="material-symbols-outlined text-sm">window</span></button>
+<button class="p-1 hover:bg-[#adc6ff]/10 transition-all duration-300 text-[#c2c6d6]"><span class="material-symbols-outlined text-sm">apps</span></button>
+<button class="p-1 hover:bg-[#adc6ff]/10 transition-all duration-300 text-[#c2c6d6]"><span class="material-symbols-outlined text-sm">location_on</span></button>
+</div>
+<button class="bg-secondary-container text-on-secondary-container px-4 py-1.5 rounded-sm font-semibold text-xs tracking-tight flex items-center gap-2 hover:scale-95 duration-150 ease-in-out glow-emerald">
+<span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+                Start AI Traffic
+            </button>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 pt-20 bg-[#070e1d] flex flex-col border-r border-[#adc6ff]/10 z-40">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3 p-3 bg-surface-container-low rounded-lg">
+<div class="w-10 h-10 bg-primary-container/20 rounded-sm flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">terminal</span>
+</div>
+<div>
+<h3 class="text-xs font-bold text-on-surface">Edge Node 01</h3>
+<p class="text-[10px] font-mono uppercase tracking-widest text-secondary">Terminal Active</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-4 px-6 py-3 text-[#4edea3] border-r-2 border-[#4edea3] bg-[#4edea3]/5 transition-all duration-200 ease-out" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-mono text-sm uppercase tracking-wider">Dashboard</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 text-[#c2c6d6] hover:bg-[#adc6ff]/5 transition-all duration-200 ease-out" href="#">
+<span class="material-symbols-outlined">videocam</span>
+<span class="font-mono text-sm uppercase tracking-wider">Cameras</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 text-[#c2c6d6] hover:bg-[#adc6ff]/5 transition-all duration-200 ease-out" href="#">
+<span class="material-symbols-outlined">sensors</span>
+<span class="font-mono text-sm uppercase tracking-wider">Sensors</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 text-[#c2c6d6] hover:bg-[#adc6ff]/5 transition-all duration-200 ease-out" href="#">
+<span class="material-symbols-outlined">shield</span>
+<span class="font-mono text-sm uppercase tracking-wider">Security</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 text-[#c2c6d6] hover:bg-[#adc6ff]/5 transition-all duration-200 ease-out" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-mono text-sm uppercase tracking-wider">Settings</span>
+</a>
+</nav>
+<div class="p-6 mt-auto border-t border-[#adc6ff]/10">
+<button class="w-full bg-primary-container py-2 text-xs font-bold rounded-sm mb-4 hover:brightness-110 transition-all">Deploy Update</button>
+<div class="space-y-2">
+<a class="flex items-center gap-3 text-[#c2c6d6] text-xs font-mono uppercase tracking-widest hover:text-[#adc6ff]" href="#">
+<span class="material-symbols-outlined text-sm">help</span> Support
+                </a>
+<a class="flex items-center gap-3 text-[#c2c6d6] text-xs font-mono uppercase tracking-widest hover:text-[#adc6ff]" href="#">
+<span class="material-symbols-outlined text-sm">description</span> Documentation
+                </a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-16 pb-10 min-h-screen bg-surface">
+<div class="p-6 h-[calc(100vh-104px)] overflow-hidden">
+<!-- Header Controls -->
+<div class="flex justify-between items-end mb-6">
+<div>
+<span class="text-[10px] font-mono uppercase tracking-[0.2em] text-outline">Active Environment</span>
+<div class="flex items-center gap-4 mt-1">
+<h2 class="text-2xl font-bold tracking-tight text-on-surface">Smart Station Plaza</h2>
+<div class="flex bg-surface-container-low p-1 rounded-sm">
+<select class="bg-transparent border-none text-xs font-mono focus:ring-0 text-primary">
+<option>Level 01: Entrance</option>
+<option>Level 02: VIP Deck</option>
+<option>Level 03: EV Charging</option>
+</select>
+</div>
+</div>
+</div>
+<div class="flex gap-2">
+<div class="flex items-center gap-2 px-3 py-1.5 bg-surface-container-high rounded-sm text-[10px] font-mono border border-outline-variant/20">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+                        AI INFERENCE ACTIVE
+                    </div>
+</div>
+</div>
+<!-- Video Grid -->
+<div class="grid grid-cols-2 gap-4 h-[calc(100%-80px)]">
+<!-- Camera 01 -->
+<div class="relative group overflow-hidden rounded-lg bg-surface-container-lowest border border-outline-variant/10">
+<img class="w-full h-full object-cover opacity-60 grayscale-[0.3]" data-alt="Overhead view of a busy parking lot with cars" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDo6G4zV7AXXalRyDuI_eO-uGdJLeK4xtQPbkEE1pL38hYX_iLVgB9smFLEqkMiUSF5eMFw02oQ7xZV9OJAZacUDtq1wGpyS-6GbyjhCDKphSCKUBCvFdR4Xo3VoEccT_TsWHoNmyPYFMyAhMoofy0GIhfFNPfxp84zDaCQk3v4wn759AfXquzkTs9MQ2Nz7u3T7AHsfAFBUnNIHRoebO4PL5vn90THphWRBdDIAaz_glVtPjqMtI8htvcb6WKpQq83F00wTX1tGg"/>
+<div class="scanline absolute inset-0 opacity-20"></div>
+<!-- Overlays -->
+<div class="absolute inset-0 p-4 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div class="bg-black/60 backdrop-blur-md p-2 rounded-sm border-l-2 border-secondary">
+<p class="text-[10px] font-mono uppercase text-secondary">CAM-01-ENTRY</p>
+<p class="text-[8px] font-mono text-outline">POS: 40.7128° N, 74.0060° W</p>
+</div>
+<div class="bg-black/60 backdrop-blur-md px-2 py-1 rounded-sm">
+<p class="text-[10px] font-mono text-white">LIVE REC</p>
+</div>
+</div>
+<!-- Bounding Boxes Example -->
+<div class="absolute top-1/3 left-1/4 w-32 h-20 border-2 border-primary/50 bg-primary/5">
+<span class="absolute -top-4 left-0 text-[8px] font-mono bg-primary text-on-primary px-1">VEHICLE_084 [98%]</span>
+</div>
+<div class="absolute bottom-1/4 right-1/3 w-24 h-16 border-2 border-secondary/50 bg-secondary/5">
+<span class="absolute -top-4 left-0 text-[8px] font-mono bg-secondary text-on-secondary px-1">SLOT_A12 [VACANT]</span>
+</div>
+<div class="flex gap-2">
+<div class="glass-panel px-3 py-1 rounded-sm border border-secondary/30">
+<p class="text-[10px] font-mono text-secondary">A1-A12: AVAILABLE</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Camera 02 -->
+<div class="relative group overflow-hidden rounded-lg bg-surface-container-lowest border border-outline-variant/10">
+<img class="w-full h-full object-cover opacity-60 grayscale-[0.3]" data-alt="Underground parking garage with high contrast lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApH-1Cqxjmx3axe6E68oJVhTOyNcl9tSpY_h5HlIqUmjkEnrqpJPBPnBoADAvhvxio9qU3_Qn5jWpmfTdCTxK8sBQ7ruY55GRQMNP2vELX7FFGPk3ofxi0lkk0xPtr1ySGo0mdborZv53i-z1k5cbvUa_4p_XInsqZbbtII2tYbuV5mOMepAvhCmk6VGuZCrJN-LWQEt0HlCIOV2Zb0FkA-xVI2TWiOmTIiaN5dfQKh_EeZerPo0xHMwHpnBwxg0t096pxRHnlhA"/>
+<div class="scanline absolute inset-0 opacity-20"></div>
+<div class="absolute inset-0 p-4 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div class="bg-black/60 backdrop-blur-md p-2 rounded-sm border-l-2 border-primary">
+<p class="text-[10px] font-mono uppercase text-primary">CAM-02-B1-NORTH</p>
+<p class="text-[8px] font-mono text-outline">POS: 40.7129° N, 74.0061° W</p>
+</div>
+</div>
+<div class="absolute top-1/2 left-1/2 w-28 h-20 border-2 border-error/50 bg-error/5">
+<span class="absolute -top-4 left-0 text-[8px] font-mono bg-error text-white px-1">SLOT_B09 [OCCUPIED]</span>
+</div>
+<div class="flex gap-2">
+<div class="glass-panel px-3 py-1 rounded-sm border border-primary/30">
+<p class="text-[10px] font-mono text-primary">B1-B24: 85% CAPACITY</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Camera 03 (Asymmetric 1/3 layout logic simulated with cols-2 but visual intent) -->
+<div class="relative group overflow-hidden rounded-lg bg-surface-container-lowest border border-outline-variant/10">
+<img class="w-full h-full object-cover opacity-60 grayscale-[0.3]" data-alt="Outdoor parking sensor view from high angle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIi-1Px_S-hSv-sdWxlJQUGQ6B8m90XSFGFhtKm6OcfkTSvbUyViMSwcylS7TLbAZBp3hyc7q71dj_bBaV0a_6RLvqMruV9A_9VgSQIyhSOrwnEQZuXYehSiLS5eYMTQK3J4SfCRZ7kx8JL5lgFK69rCSOMXo7vIg6ZDIY-tggfjfHPSq57lQqO-5TD2CZOBla9AJBCJpokuSjPtNI37gIhbPVkMSHkDJ5ROHdjwdp4iMmbtHe5TSmVUtZJBzyBEO7S01wXLo9zw"/>
+<div class="scanline absolute inset-0 opacity-20"></div>
+<div class="absolute inset-0 p-4 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div class="bg-black/60 backdrop-blur-md p-2 rounded-sm border-l-2 border-secondary">
+<p class="text-[10px] font-mono uppercase text-secondary">CAM-03-EXIT-A</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Camera 04 -->
+<div class="relative group overflow-hidden rounded-lg bg-surface-container-lowest border border-outline-variant/10">
+<div class="absolute inset-0 bg-surface-container-high flex items-center justify-center flex-col gap-2">
+<span class="material-symbols-outlined text-outline text-4xl">videocam_off</span>
+<p class="text-[10px] font-mono uppercase text-outline tracking-widest">FEED INTERRUPTED</p>
+<p class="text-[8px] font-mono text-error">ERR: CONNECTION_TIMEOUT_NODE_04</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-[#070e1d]/90 backdrop-blur-md text-[#4edea3] fixed bottom-0 w-full h-10 flex items-center border-t border-[#adc6ff]/10 shadow-[0_-4px_20px_rgba(0,0,0,0.5)] z-50 px-8 justify-between">
+<div class="flex gap-8 items-center">
+<span class="font-mono text-[11px] uppercase tracking-[0.1em]">System Status: Optimal | Kinetic Intelligence Framework v4.0</span>
+</div>
+<div class="flex gap-12 items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]">speed</span>
+<span class="font-mono text-[11px] uppercase tracking-[0.1em] text-[#4edea3] font-bold">Inference: 24ms</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]">motion_photos_on</span>
+<span class="font-mono text-[11px] uppercase tracking-[0.1em] text-[#c2c6d6]">Frames: 30fps</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]">view_module</span>
+<span class="font-mono text-[11px] uppercase tracking-[0.1em] text-[#c2c6d6]">Total Slots Visible: 120</span>
+</div>
+</div>
+</footer>
+</body></html>

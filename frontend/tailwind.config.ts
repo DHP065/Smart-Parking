@@ -1,0 +1,105 @@
+import type { Config } from "tailwindcss";
+
+const config: Config = {
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        border: "#8c909f",
+        input: "#424754",
+        ring: "#adc6ff",
+        background: "#000000",
+        foreground: "#dce2f7",
+        primary: {
+          DEFAULT: "#adc6ff",
+          foreground: "#002e6a",
+        },
+        secondary: {
+          DEFAULT: "#4edea3",
+          foreground: "#003824",
+        },
+        destructive: {
+          DEFAULT: "#ffb4ab",
+          foreground: "#690005",
+        },
+        muted: {
+          DEFAULT: "#121212",
+          foreground: "#c2c6d6",
+        },
+        accent: {
+          DEFAULT: "#00a572",
+          foreground: "#00311f",
+        },
+        popover: {
+          DEFAULT: "#0a0a0a",
+          foreground: "#ffffff",
+        },
+        card: {
+          DEFAULT: "#1a1a1a",
+          foreground: "#ffffff",
+        },
+        // Stitch generated colors (Black Edition)
+        "surface-variant": "#2e3545",
+        "inverse-primary": "#005ac2",
+        "primary-fixed": "#d8e2ff",
+        "secondary-fixed": "#6ffbbe",
+        "surface-bright": "#323949",
+        "on-secondary-fixed-variant": "#005236",
+        "error": "#ffb4ab",
+        "tertiary-fixed": "#ffdcc6",
+        "surface-tint": "#adc6ff",
+        "on-primary-fixed-variant": "#004395",
+        "surface-dim": "#000000",
+        "on-secondary-container": "#00311f",
+        "on-tertiary-fixed-variant": "#723600",
+        "on-tertiary-container": "#461f00",
+        "on-surface-variant": "#c2c6d6",
+        "surface-container-low": "#0a0a0a",
+        "primary-container": "#4d8eff",
+        "primary-fixed-dim": "#adc6ff",
+        "surface-container-high": "#1a1a1a",
+        "tertiary": "#ffb786",
+        "surface": "#000000",
+        "surface-container-highest": "#262626",
+        "on-primary-container": "#00285d",
+        "inverse-surface": "#ffffff",
+        "on-tertiary": "#502400",
+        "on-secondary": "#003824",
+        "on-primary": "#002e6a",
+        "outline-variant": "#333333",
+        "outline": "#8c909f",
+        "surface-container": "#121212",
+        "on-error-container": "#ffdad6",
+        "on-secondary-fixed": "#002113",
+        "on-background": "#ffffff",
+        "on-tertiary-fixed": "#311400",
+        "on-surface": "#ffffff",
+        "surface-container-lowest": "#000000",
+        "secondary-fixed-dim": "#4edea3",
+        "tertiary-fixed-dim": "#ffb786",
+        "error-container": "#93000a",
+        "on-primary-fixed": "#001a42",
+        "secondary-container": "#00a572",
+        "inverse-on-surface": "#000000",
+        "tertiary-container": "#df7412",
+        "on-error": "#690005"
+      },
+      fontFamily: {
+        "headline": ["var(--font-inter)", "sans-serif"],
+        "body": ["var(--font-inter)", "sans-serif"],
+        "label": ["var(--font-inter)", "sans-serif"],
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
+    },
+  },
+  plugins: [],
+};
+export default config;

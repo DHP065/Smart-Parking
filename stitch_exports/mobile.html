@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ParkNavigator | Smart City Solutions</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-fixed": "#ffdcc6",
+              "background": "#0c1322",
+              "surface-tint": "#adc6ff",
+              "on-primary-fixed-variant": "#004395",
+              "surface-dim": "#0c1322",
+              "on-secondary-container": "#00311f",
+              "on-tertiary-fixed-variant": "#723600",
+              "on-surface-variant": "#c2c6d6",
+              "on-tertiary-container": "#461f00",
+              "surface-container-low": "#141b2b",
+              "primary-container": "#4d8eff",
+              "primary-fixed": "#d8e2ff",
+              "surface-variant": "#2e3545",
+              "inverse-primary": "#005ac2",
+              "secondary-fixed": "#6ffbbe",
+              "surface-bright": "#323949",
+              "error": "#ffb4ab",
+              "on-secondary-fixed-variant": "#005236",
+              "on-surface": "#dce2f7",
+              "surface-container-lowest": "#070e1d",
+              "tertiary-fixed-dim": "#ffb786",
+              "secondary-fixed-dim": "#4edea3",
+              "error-container": "#93000a",
+              "on-primary-fixed": "#001a42",
+              "secondary-container": "#00a572",
+              "inverse-on-surface": "#293040",
+              "tertiary-container": "#df7412",
+              "on-error": "#690005",
+              "tertiary": "#ffb786",
+              "surface-container-high": "#232a3a",
+              "primary-fixed-dim": "#adc6ff",
+              "surface-container-highest": "#2e3545",
+              "surface": "#0c1322",
+              "on-tertiary": "#502400",
+              "inverse-surface": "#dce2f7",
+              "on-primary-container": "#00285d",
+              "secondary": "#4edea3",
+              "outline-variant": "#424754",
+              "on-secondary": "#003824",
+              "on-primary": "#002e6a",
+              "surface-container": "#191f2f",
+              "outline": "#8c909f",
+              "on-secondary-fixed": "#002113",
+              "on-error-container": "#ffdad6",
+              "on-background": "#dce2f7",
+              "primary": "#adc6ff",
+              "on-tertiary-fixed": "#311400"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #0c1322; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .glass-panel { background: rgba(50, 57, 73, 0.6); backdrop-filter: blur(12px); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface antialiased pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#0c1322]/70 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(173,198,255,0.08)]">
+<div class="flex justify-between items-center px-6 h-16 w-full">
+<div class="flex items-center gap-3">
+<button class="text-[#adc6ff] active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="text-[#adc6ff] font-black tracking-tighter text-xl">ParkNavigator</h1>
+</div>
+<button class="font-['Inter'] font-semibold tracking-[-0.02em] text-[#dce2f7] uppercase text-[10px] tracking-[0.05em] bg-[#232a3a] px-3 py-1.5 rounded-lg active:scale-95 transition-transform">
+                List View
+            </button>
+</div>
+</header>
+<main class="pt-24 px-6 space-y-8">
+<!-- Hero Section -->
+<section class="space-y-6">
+<div class="space-y-2">
+<p class="text-[10px] font-bold tracking-[0.2em] text-secondary uppercase">Premium Concierge</p>
+<h2 class="text-4xl font-extrabold tracking-[-0.04em] leading-tight text-on-surface">Find &amp; Reserve Parking</h2>
+</div>
+<div class="relative group">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-primary" data-icon="search">search</span>
+</div>
+<input class="w-full h-14 bg-surface-container-high border-none rounded-xl pl-12 pr-4 text-on-surface placeholder:text-on-surface-variant focus:ring-2 focus:ring-primary/30 transition-all duration-300" placeholder="Search by destination or landmark..." type="text"/>
+<div class="absolute inset-y-0 right-3 flex items-center">
+<button class="p-2 bg-primary text-on-primary rounded-lg shadow-lg shadow-primary/20 active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="tune">tune</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Stats Horizontal Scroll -->
+<section class="hide-scrollbar overflow-x-auto">
+<div class="flex gap-4 pb-2 w-max">
+<!-- Stat 1 -->
+<div class="w-40 p-5 bg-surface-container-low rounded-2xl border-b-2 border-primary/20 shadow-xl">
+<span class="material-symbols-outlined text-primary mb-3 block" data-icon="garage">garage</span>
+<p class="text-xs font-medium text-on-surface-variant uppercase tracking-wider">Available Slots</p>
+<p class="text-2xl font-black text-on-surface mt-1 tracking-tight">1,284</p>
+</div>
+<!-- Stat 2 -->
+<div class="w-40 p-5 bg-surface-container-low rounded-2xl border-b-2 border-secondary/20 shadow-xl">
+<span class="material-symbols-outlined text-secondary mb-3 block" data-icon="nest_eco_leaf">nest_eco_leaf</span>
+<p class="text-xs font-medium text-on-surface-variant uppercase tracking-wider">Total Free</p>
+<p class="text-2xl font-black text-on-surface mt-1 tracking-tight">452</p>
+</div>
+<!-- Stat 3 -->
+<div class="w-40 p-5 bg-surface-container-low rounded-2xl border-b-2 border-tertiary/20 shadow-xl">
+<span class="material-symbols-outlined text-tertiary mb-3 block" data-icon="location_on">location_on</span>
+<p class="text-xs font-medium text-on-surface-variant uppercase tracking-wider">Locations</p>
+<p class="text-2xl font-black text-on-surface mt-1 tracking-tight">12</p>
+</div>
+</div>
+</section>
+<!-- Toggle Map/List -->
+<div class="sticky top-20 z-40 py-2">
+<div class="flex p-1 bg-surface-container-highest/60 backdrop-blur-xl rounded-full max-w-xs mx-auto border border-white/5">
+<button class="flex-1 py-2 text-[10px] font-bold uppercase tracking-widest text-on-surface bg-surface-bright rounded-full shadow-lg">List View</button>
+<button class="flex-1 py-2 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors">Map View</button>
+</div>
+</div>
+<!-- Parking Locations List -->
+<section class="space-y-4">
+<!-- Garage 1 -->
+<div class="bg-surface-container-low rounded-2xl p-5 group transition-all duration-300 hover:bg-surface-container-high active:scale-[0.98]">
+<div class="flex justify-between items-start mb-4">
+<div class="space-y-1">
+<h3 class="text-lg font-bold tracking-tight text-on-surface">Lumina Plaza Garage</h3>
+<p class="text-xs text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="pin_drop">pin_drop</span>
+                            120 Market St
+                        </p>
+</div>
+<div class="text-right">
+<p class="text-xl font-black text-primary">$4.50<span class="text-[10px] font-medium text-on-surface-variant">/hr</span></p>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-[10px] font-bold uppercase tracking-widest">
+<span class="text-on-surface-variant">Occupancy</span>
+<span class="text-primary">60% Available</span>
+</div>
+<div class="h-2 w-full bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-primary-container rounded-full" style="width: 60%"></div>
+</div>
+</div>
+</div>
+<!-- Garage 2 -->
+<div class="bg-surface-container-low rounded-2xl p-5 group transition-all duration-300 hover:bg-surface-container-high active:scale-[0.98]">
+<div class="flex justify-between items-start mb-4">
+<div class="space-y-1">
+<h3 class="text-lg font-bold tracking-tight text-on-surface">Emerald Wharf Parking</h3>
+<p class="text-xs text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="pin_drop">pin_drop</span>
+                            Pier 14
+                        </p>
+</div>
+<div class="text-right">
+<p class="text-xl font-black text-secondary">$3.20<span class="text-[10px] font-medium text-on-surface-variant">/hr</span></p>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-[10px] font-bold uppercase tracking-widest">
+<span class="text-on-surface-variant">Occupancy</span>
+<span class="text-secondary">92% Available</span>
+</div>
+<div class="h-2 w-full bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-secondary to-secondary-container rounded-full" style="width: 92%"></div>
+</div>
+</div>
+</div>
+<!-- Garage 3 -->
+<div class="bg-surface-container-low rounded-2xl p-5 group transition-all duration-300 hover:bg-surface-container-high active:scale-[0.98]">
+<div class="flex justify-between items-start mb-4">
+<div class="space-y-1">
+<h3 class="text-lg font-bold tracking-tight text-on-surface">Tech Tower Garage</h3>
+<p class="text-xs text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="pin_drop">pin_drop</span>
+                            405 Howard St
+                        </p>
+</div>
+<div class="text-right">
+<p class="text-xl font-black text-tertiary">$6.00<span class="text-[10px] font-medium text-on-surface-variant">/hr</span></p>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-[10px] font-bold uppercase tracking-widest">
+<span class="text-on-surface-variant">Occupancy</span>
+<span class="text-tertiary">Almost Full</span>
+</div>
+<div class="h-2 w-full bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-tertiary to-tertiary-container rounded-full" style="width: 12%"></div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-[#141b2b]/80 backdrop-blur-2xl z-50 rounded-t-[2rem] shadow-[0_-10px_40px_rgba(0,0,0,0.4)]">
+<a class="flex flex-col items-center justify-center bg-[#adc6ff]/10 text-[#adc6ff] rounded-2xl px-4 py-2 ring-1 ring-[#adc6ff]/20 active:scale-90 transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#dce2f7]/40 px-4 py-2 hover:text-[#4edea3] transition-all active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Search</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#dce2f7]/40 px-4 py-2 hover:text-[#4edea3] transition-all active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="confirmation_number">confirmation_number</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Bookings</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#dce2f7]/40 px-4 py-2 hover:text-[#4edea3] transition-all active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Profile</span>
+</a>
+</nav>
+<!-- FAB (Suppressed based on context rules, but present if primary action needed) -->
+<div class="fixed bottom-28 right-6 z-40">
+<button class="w-14 h-14 bg-primary text-on-primary rounded-2xl shadow-[0_8px_32px_rgba(173,198,255,0.3)] flex items-center justify-center active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="add_location_alt">add_location_alt</span>
+</button>
+</div>
+</body></html>

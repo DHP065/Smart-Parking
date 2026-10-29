@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-variant": "#2e3545",
+              "inverse-primary": "#005ac2",
+              "primary-fixed": "#d8e2ff",
+              "secondary-fixed": "#6ffbbe",
+              "surface-bright": "#323949",
+              "on-secondary-fixed-variant": "#005236",
+              "error": "#ffb4ab",
+              "tertiary-fixed": "#ffdcc6",
+              "background": "#0c1322",
+              "surface-tint": "#adc6ff",
+              "on-primary-fixed-variant": "#004395",
+              "surface-dim": "#0c1322",
+              "on-secondary-container": "#00311f",
+              "on-tertiary-fixed-variant": "#723600",
+              "on-tertiary-container": "#461f00",
+              "on-surface-variant": "#c2c6d6",
+              "surface-container-low": "#141b2b",
+              "primary-container": "#4d8eff",
+              "primary-fixed-dim": "#adc6ff",
+              "surface-container-high": "#232a3a",
+              "tertiary": "#ffb786",
+              "surface": "#0c1322",
+              "surface-container-highest": "#2e3545",
+              "on-primary-container": "#00285d",
+              "inverse-surface": "#dce2f7",
+              "on-tertiary": "#502400",
+              "secondary": "#4edea3",
+              "on-secondary": "#003824",
+              "on-primary": "#002e6a",
+              "outline-variant": "#424754",
+              "outline": "#8c909f",
+              "surface-container": "#191f2f",
+              "on-error-container": "#ffdad6",
+              "on-secondary-fixed": "#002113",
+              "on-background": "#dce2f7",
+              "primary": "#adc6ff",
+              "on-tertiary-fixed": "#311400",
+              "on-surface": "#dce2f7",
+              "surface-container-lowest": "#070e1d",
+              "secondary-fixed-dim": "#4edea3",
+              "tertiary-fixed-dim": "#ffb786",
+              "error-container": "#93000a",
+              "on-primary-fixed": "#001a42",
+              "secondary-container": "#00a572",
+              "inverse-on-surface": "#293040",
+              "tertiary-container": "#df7412",
+              "on-error": "#690005"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        .glass-panel {
+            background: rgba(50, 57, 73, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="bg-[#0c1322]/70 backdrop-blur-xl docked full-width top-0 sticky z-50 shadow-[0_8px_32px_0_rgba(173,198,255,0.08)]">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-[1920px] mx-auto">
+<div class="flex items-center gap-12">
+<span class="text-2xl font-black tracking-tighter text-[#adc6ff]">ParkLuminary</span>
+<nav class="hidden md:flex gap-8 items-center font-['Inter'] tracking-tight text-[#dce2f7]">
+<a class="text-[#adc6ff] font-bold border-b-2 border-[#adc6ff] pb-1" href="#">Dashboard</a>
+<a class="text-[#dce2f7]/60 hover:text-[#dce2f7] transition-colors" href="#">Map View</a>
+<a class="text-[#dce2f7]/60 hover:text-[#dce2f7] transition-colors" href="#">Reservations</a>
+<a class="text-[#dce2f7]/60 hover:text-[#dce2f7] transition-colors" href="#">History</a>
+</nav>
+</div>
+<div class="flex items-center gap-6 flex-1 max-w-xl mx-12">
+<div class="relative w-full group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-primary">search</span>
+<input class="w-full bg-surface-container-high rounded-xl py-3 pl-12 pr-4 border-none focus:ring-1 focus:ring-primary/30 transition-all text-on-surface placeholder:text-on-surface-variant/50" placeholder="Search by destination or garage name..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-surface-container-highest px-4 py-2 rounded-lg flex items-center gap-2 text-sm font-medium hover:bg-surface-bright transition-all active:scale-95">
+<span class="material-symbols-outlined text-sm">map</span>
+                    List/Map Toggle
+                </button>
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-secondary rounded-full"></span>
+</button>
+<div class="flex items-center gap-3 pl-4 border-l border-outline-variant/30">
+<img alt="User Profile Avatar" class="w-10 h-10 rounded-full border-2 border-primary/20 object-cover" data-alt="Modern professional male user portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhfY1FX0VhwukHDbBQFLzeUqcV4-J6brmjEsznk23boBhLI5djp-WqHVE158Rb0FxTbjEQQpYdn6jwvpasqmkC-cge8fIfdVMWAKik_9mpHAVA88PusT-K5kqyR4-qqe-1F0SsKYho1PXPNYQq1YPH90iH_GXs1_QBMKXg-O2VARVBNZs9vXzXKzAa1KuqMlXtlWHgORjlcXq3mXsl6p6KpumdCuHkTHOwDKe1POWbknmJnURerchfPigFFSbZbDEs7dm08DKcBQ"/>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-[1920px] mx-auto px-8 py-10 flex flex-col gap-12">
+<!-- Hero Section -->
+<section class="flex flex-col gap-4">
+<h1 class="text-5xl font-extrabold tracking-tight text-on-background">
+                Find &amp; Reserve <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Parking Near You</span>
+</h1>
+<p class="text-on-surface-variant text-lg max-w-2xl font-light leading-relaxed">
+                Experience the future of urban transit. Secure high-end parking slots in real-time with precise location tracking and instant mobile reservation.
+            </p>
+</section>
+<!-- Stats Dashboard -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="glass-panel p-6 rounded-xl border border-outline-variant/10 group hover:border-primary/30 transition-all">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined">local_parking</span>
+</div>
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant/60">Real-time</span>
+</div>
+<div class="flex flex-col">
+<span class="text-4xl font-black tracking-tighter text-on-surface mb-1">1,284</span>
+<span class="text-sm text-on-surface-variant font-medium">Available Slots</span>
+</div>
+<div class="mt-4 h-1 w-full bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-primary-container w-[72%]"></div>
+</div>
+</div>
+<div class="glass-panel p-6 rounded-xl border border-outline-variant/10 group hover:border-secondary/30 transition-all">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 rounded-lg bg-secondary/10 text-secondary">
+<span class="material-symbols-outlined">event_available</span>
+</div>
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant/60">Live Status</span>
+</div>
+<div class="flex flex-col">
+<span class="text-4xl font-black tracking-tighter text-on-surface mb-1">452</span>
+<span class="text-sm text-on-surface-variant font-medium">Total Free Spots</span>
+</div>
+<div class="mt-4 h-1 w-full bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-secondary to-secondary-container w-[35%]"></div>
+</div>
+</div>
+<div class="glass-panel p-6 rounded-xl border border-outline-variant/10 group hover:border-tertiary/30 transition-all">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 rounded-lg bg-tertiary/10 text-tertiary">
+<span class="material-symbols-outlined">explore</span>
+</div>
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant/60">Within 2km</span>
+</div>
+<div class="flex flex-col">
+<span class="text-4xl font-black tracking-tighter text-on-surface mb-1">12</span>
+<span class="text-sm text-on-surface-variant font-medium">Nearby Locations</span>
+</div>
+<div class="mt-4 flex items-center gap-2">
+<span class="flex -space-x-2">
+<img alt="" class="w-6 h-6 rounded-full border-2 border-surface" data-alt="Small profile icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgo6NCEVUHanE9hrLCCCMIM-V9MnjEuVeHq2RhDySUSr5vb4xu3y2TGEDTm_G0XF7flS6W8E97w09BGO3-6fvD1kPR3ELJgHCCKD3Rp7MPgMnxg169rOTra9lMV0dAKkIqH8hPKvAudsXiOyFkYPyOoII0M7hJ_gh-ZiisBjqAsqPC2_Xw1EPfCTHMOTi1jU516mcG2MdQ9jI1kezQknFcyE9iFZLMf87lr7UsePPXnxax3j5liJKJSznlrApPy4ulGl65vk0Acg"/>
+<img alt="" class="w-6 h-6 rounded-full border-2 border-surface" data-alt="Small profile icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqpnkEOku5dCV1JWmgKq6BPDu2hJGouJWoa0n5259twQCiVghEaQB7BQWUmZB6VN9cNjE4-VHYsWKsUr8QeDxR2yYTg9qAuQIaj1kfcjzjBTFWicBzNw__SgczjR96NMGn8_SNGUsvAYJxzWBPxXavjREKq91ZIUOgdoqBozJIsgDWw4h72soEeuk5IotbN1M1hMNXrmL06aRaqslle2qpuOgjPgRWhuEygX8Y23U9BJ-VtYcSwzmTT3wbOnJB8elCjH99hKd10g"/>
+</span>
+<span class="text-[10px] text-on-surface-variant font-bold uppercase tracking-tighter">+8 currently parking</span>
+</div>
+</div>
+</section>
+<!-- Split Layout: Map & List -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-8 h-[700px]">
+<!-- Left Side: Interactive Map -->
+<div class="lg:col-span-8 relative rounded-2xl overflow-hidden bg-surface-container-low border border-outline-variant/10">
+<!-- Map Background -->
+<div class="absolute inset-0 opacity-40 grayscale contrast-125" data-alt="Dark stylized city street map visualization" data-location="San Francisco" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB8ka2w9sJuFtGz3vPpVgAuTLMmtkY8pZX_1f1LcyEOIXK1WSfhamP9cYGUCyci2MZlhOwT7KNFwKUOP-zhA7z1TO0xDSR8QKsnVMptWAXlZSECTpjn9LVSKPeaFFIuLKbxYp6s4QaDOUYvLR2oS2BahofD-z5_RFbgQylb6fthbrqcj8IGP4W4jMoVwjDyaxIX2dsuGwZunFEnyM0sREsfpZR_kJqlmDC9pa7Ak3OGQHZ-1xDaICHT-w4zxnuwJZySn5-KQNY1xw')"></div>
+<!-- Map Overlays (Pins) -->
+<div class="absolute top-[30%] left-[45%] group">
+<div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(173,198,255,0.4)] cursor-pointer">
+<div class="w-3 h-3 bg-white rounded-full"></div>
+</div>
+<div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-48 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+<div class="glass-panel p-3 rounded-xl border border-primary/30 shadow-2xl">
+<h4 class="text-xs font-bold text-primary mb-1">Lumina Plaza Garage</h4>
+<p class="text-[10px] text-on-surface-variant">24/40 Slots Available</p>
+</div>
+</div>
+</div>
+<div class="absolute top-[55%] left-[25%] group">
+<div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(78,222,163,0.4)] cursor-pointer">
+<div class="w-3 h-3 bg-white rounded-full"></div>
+</div>
+<div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-48 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+<div class="glass-panel p-3 rounded-xl border border-secondary/30 shadow-2xl">
+<h4 class="text-xs font-bold text-secondary mb-1">Emerald Wharf</h4>
+<p class="text-[10px] text-on-surface-variant">100% Free - All Clear</p>
+</div>
+</div>
+</div>
+<!-- Map Legend/Controls -->
+<div class="absolute bottom-6 right-6 flex flex-col gap-2">
+<button class="glass-panel p-3 rounded-lg hover:bg-surface-bright transition-colors">
+<span class="material-symbols-outlined">add</span>
+</button>
+<button class="glass-panel p-3 rounded-lg hover:bg-surface-bright transition-colors">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<button class="glass-panel p-3 rounded-lg bg-primary/20 text-primary border border-primary/30">
+<span class="material-symbols-outlined">my_location</span>
+</button>
+</div>
+</div>
+<!-- Right Side: Scrollable List -->
+<div class="lg:col-span-4 flex flex-col gap-4 overflow-y-auto pr-2 custom-scrollbar">
+<div class="flex justify-between items-center mb-2 px-2">
+<h3 class="font-bold text-lg">Nearby Parking</h3>
+<span class="text-xs font-bold text-primary flex items-center gap-1 cursor-pointer">
+                        Filter By Price <span class="material-symbols-outlined text-xs">tune</span>
+</span>
+</div>
+<!-- Card 1 -->
+<div class="p-5 rounded-xl bg-surface-container-high border border-outline-variant/10 hover:border-primary/40 transition-all flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-bold text-lg text-on-surface tracking-tight">Lumina Plaza Garage</h4>
+<p class="text-sm text-on-surface-variant">120 Market St, Financial District</p>
+</div>
+<span class="text-xl font-black text-primary">$4.50<span class="text-xs font-medium text-on-surface-variant">/hr</span></span>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-center text-[10px] font-bold uppercase tracking-wider text-on-surface-variant/70">
+<span>Availability</span>
+<span class="text-primary">60% Available</span>
+</div>
+<div class="h-2 w-full bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-primary-container w-[60%]"></div>
+</div>
+</div>
+<div class="flex items-center gap-2 mt-2">
+<button class="flex-1 bg-primary text-on-primary py-2.5 rounded-lg font-bold text-sm hover:brightness-110 active:scale-95 transition-all">
+                            Reserve Now
+                        </button>
+<button class="p-2.5 rounded-lg bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-sm">directions</span>
+</button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="p-5 rounded-xl bg-surface-container-high border border-outline-variant/10 hover:border-secondary/40 transition-all flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-bold text-lg text-on-surface tracking-tight">Emerald Wharf Parking</h4>
+<p class="text-sm text-on-surface-variant">Pier 14, Embarcadero</p>
+</div>
+<span class="text-xl font-black text-secondary">$3.20<span class="text-xs font-medium text-on-surface-variant">/hr</span></span>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-center text-[10px] font-bold uppercase tracking-wider text-on-surface-variant/70">
+<span>Availability</span>
+<span class="text-secondary">92% Available</span>
+</div>
+<div class="h-2 w-full bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-secondary to-secondary-container w-[92%]"></div>
+</div>
+</div>
+<div class="flex items-center gap-2 mt-2">
+<button class="flex-1 bg-secondary text-on-secondary py-2.5 rounded-lg font-bold text-sm hover:brightness-110 active:scale-95 transition-all">
+                            Reserve Now
+                        </button>
+<button class="p-2.5 rounded-lg bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-sm">directions</span>
+</button>
+</div>
+</div>
+<!-- Card 3 (High Occupancy) -->
+<div class="p-5 rounded-xl bg-surface-container-high border border-outline-variant/10 hover:border-tertiary/40 transition-all flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-bold text-lg text-on-surface tracking-tight">Tech Tower Garage</h4>
+<p class="text-sm text-on-surface-variant">405 Howard Street</p>
+</div>
+<span class="text-xl font-black text-tertiary">$6.00<span class="text-xs font-medium text-on-surface-variant">/hr</span></span>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-center text-[10px] font-bold uppercase tracking-wider text-on-surface-variant/70">
+<span>Availability</span>
+<span class="text-tertiary">12% Available</span>
+</div>
+<div class="h-2 w-full bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-container w-[12%]"></div>
+</div>
+</div>
+<div class="flex items-center gap-2 mt-2">
+<button class="flex-1 bg-surface-container-highest text-on-surface-variant py-2.5 rounded-lg font-bold text-sm cursor-not-allowed opacity-50">
+                            Almost Full
+                        </button>
+<button class="p-2.5 rounded-lg bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-sm">directions</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Navigation Shell Support (Mobile Only) -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 bg-surface-container-low border-t border-outline-variant/10 px-6 py-4 flex justify-between items-center z-50">
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Dash</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">explore</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Map</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">bookmark</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Saved</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Profile</span>
+</button>
+</div>
+</body></html>
